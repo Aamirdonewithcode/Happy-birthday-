@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂 Happy Birthday!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #ff8a8a, #ffd18a, #8affc1);
+      background-size: 300% 300%;
+      animation: gradient 8s ease infinite;
+      overflow: hidden;
+      text-align: center;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    h1 {
+      font-size: 3.5em;
+      margin-top: 100px;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-bottom: 40px;
+    }
+
+    button {
+      background: #fff;
+      color: #ff69b4;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 1.2em;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #ff69b4;
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 60px;
+      height: 80px;
+      border-radius: 50%;
+      animation: rise 10s infinite ease-in;
+    }
+
+    @keyframes rise {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(-110vh); opacity: 0; }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: white;
+      opacity: 0.7;
+      animation: fall 3s infinite ease-in;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h1>🎉 Happy Birthday! 🎂</h1>
+  <p>Wishing you a day filled with love, laughter, and amazing memories!</p>
+  <button onclick="playMusic()">🎵 Play Music</button>
+
+  <audio id="song" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+
+  <script>
+    // 🎈 Generate Balloons
+    for (let i = 0; i < 10; i++) {
+      let balloon = document.createElement('div');
+      balloon.classList.add('balloon');
+      balloon.style.left = Math.random() * 100 + 'vw';
+      balloon.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+      balloon.style.animationDuration = (6 + Math.random() * 5) + 's';
+      document.body.appendChild(balloon);
+    }
+
+    // 🎊 Confetti
+    for (let i = 0; i < 100; i++) {
+      let conf = document.createElement('div');
+      conf.classList.add('confetti');
+      conf.style.left = Math.random() * 100 + 'vw';
+      conf.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+      conf.style.animationDuration = (2 + Math.random() * 3) + 's';
+      document.body.appendChild(conf);
+    }
+
+    // 🎵 Music Function
+    function playMusic() {
+      const song = document.getElementById('song');
+      song.play();
+      alert('🎶 Enjoy the music & celebration!');
+    }
+  </script>
+
+</body>
+</html>
